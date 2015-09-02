@@ -40,11 +40,54 @@ layout: default
                                         <p>{{ work.description }}</p>
                                     {% endif %}
                                 </div>
+                                <div class="timeline-footer">
+                                    <small class="text-muted">
+                                        {% if work.tools %}
+                                            Tools Used: {{ work.tools }}
+                                        {% endif %}
+                                    </small>
+                                </div>
                             </div>
                         </li>
                     {% endfor %}
                 </ul>
             {% endif %}
+
+            {% if site.author.projects %}
+                <h3 class="title with-icon"><span class="glyphicon glyphicon-plane cat-title"></span>Projects</h3>
+                <ul class="timeline">
+                    {% for project in site.author.projects %}
+                        <li class="timeline-inverted">
+                            {% if project.started %}
+                                <div class="timeline-badge info">{{ project.started }}</div>
+                            {% endif %}
+                            <div class="timeline-panel grid-block">
+                                <div class="timeline-heading">
+                                    {% if project.title %}
+                                        <h4 class="timeline-title">{{ project.title }} </h4>
+                                    {% endif %}
+                                    <p>
+                                        <small class="text-muted">
+                                            {% if project.subtitle %}
+                                                {{ project.subtitle }} |
+                                            {% endif %}
+                                            {% if project.url %}
+                                            <i class="fa fa-globe"></i><a href="{{ project.url }}" target="_blank">linnk!</a>  
+                                            {% endif %}
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="timeline-body">
+                                    {% if project.description %}
+                                        <p>{{ project.description }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             {% if site.author.educationHistory %}
                 <h3 class="title with-icon"><span class="fa fa-book cat-title"></span>Education History</h3>
                 <ul class="timeline">
@@ -87,25 +130,25 @@ layout: default
             {% endif %}
         </div>
         <div class="col-md-4">
-            {% if site.author.programmingSkills %}
+            {% if site.author.experiencedProgramming %}
                 <h3 class="title with-icon"><span class="fa fa-code cat-title"></span> Programming Skills</h3>
                 <div class="grid-block">
-                    <ul class="list-unstyled list-skills">
-                        {% for programmingSkill in site.author.programmingSkills %}
-                            <li>
-                                {% if programmingSkill.name %}
-                                    <span class="caption-skill">{{ programmingSkill.name }}</span>
-                                {% endif %}
-                                {% if programmingSkill.percentage %}
-                                    <div class="progress">
-                                        <div class="progress-bar" style="width: {{ programmingSkill.percentage }}">
-                                            <span>{{ programmingSkill.percentage }} </span>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </li>
+                    <h5 class="title skill">Experienced</h5>
+                    <p class="skills-container">
+                        {% for skill in site.author.experiencedProgramming %}
+                            {% if skill.name %}
+                                <span class="programming-skill">{{ skill.name }}</span>
+                            {% endif %}
                         {% endfor %}
-                    </ul>
+                    </p>
+                    <h5 class="title skill">Learning</h5>
+                    <p class="skills-container">
+                        {% for skill in site.author.learningProgramming %}
+                            {% if skill.name %}
+                                <span class="programming-skill">{{ skill.name }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                 </div>
             {% endif %}
             {% if site.author.languages %}

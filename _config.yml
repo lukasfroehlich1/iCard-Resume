@@ -5,11 +5,11 @@ favicon: /assets/img/avatar.JPG
 baseurl: 
 url: http://ddbullfrog.com
 rss_url: /pages/atom.xml
-gems: ['kramdown']
-exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor', 'Procfile', 'Rakefile']
 
 # Build settings
 markdown: kramdown
+gems: ['kramdown']
+exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor', 'Procfile', 'Rakefile']
 
 # Author settings
 author:
